@@ -9,7 +9,7 @@ function MovieUserInput(props) {
       return userSearch.toLowerCase() === character.name.toLowerCase();
     });
     if (peopleToSearch) {
-      props.characterIsFound(peopleToSearch.id);
+      props.setCharacterFound(peopleToSearch.id);
       props.changeUserInput('');
     } else {
       props.changeUserInput(userSearch);
@@ -22,7 +22,8 @@ function MovieUserInput(props) {
 
 const mapStateToProps = state => {
   return {
-    userInput: state.movieReducer.userInput
+    userInput: state.movieReducer.userInput,
+    characters: state.movieReducer.characters
   }
 }
 
@@ -31,6 +32,9 @@ const mapDispatchToProps = dispatch => {
     changeUserInput: (value) => {
       dispatch({ type: 'CHANGE_USER_INPUT', value });
     },
+    setCharacterFound: (value) => {
+      dispatch({ type: 'SET_CHARACTER_FOUND', value });
+    }
   }
 }
 

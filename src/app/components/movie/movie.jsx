@@ -42,7 +42,7 @@ class Movie extends React.Component {
           <img src={`/images/films/${this.props.currentMovie.id}.jpg`} alt={this.props.currentMovie.title} />
           <div className="quizz-page-header-content">
             <h1>Find all characters in {this.props.currentMovie.title}</h1>
-            <MovieUserInput characters={this.props.characters} characterIsFound={this.props.setCharacterFound} />
+            <MovieUserInput />
           </div>
         </div>
         <div className="quizz-page-body">
@@ -74,9 +74,6 @@ const mapDispatchToProps = dispatch => {
     },
     setCharacters: (value) => {
       dispatch({ type: 'SET_CHARACTERS', value });
-    },
-    setCharacterFound: (value) => {
-      dispatch({ type: 'SET_CHARACTER_FOUND', value });
     },
     setAllCharactersFound: () => {
       dispatch({ type: 'SET_ALL_CHARACTERS_FOUND' });
